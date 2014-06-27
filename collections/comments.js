@@ -23,6 +23,9 @@ Meteor.methods({
       submitted: new Date().getTime()
     });
     
+    // Increment the number of comments on the post
+    Posts.update(comment.postId, {$inc: {commentsCount: 1}});
+    
     return Comments.insert(comment);
   }
 })
