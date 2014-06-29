@@ -56,7 +56,7 @@ Meteor.methods({
     
     Posts.update({
       _id: post._id,
-      upvoters: {$ne: userId}
+      upvoters: {$ne: user._id}
     }, {
       $addToSet: {upvoters: user._id},
       $inc: {votes: 1}
